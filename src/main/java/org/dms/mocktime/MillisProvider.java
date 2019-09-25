@@ -1,6 +1,7 @@
 package org.dms.mocktime;
 
 import java.lang.management.ManagementFactory;
+import java.lang.management.RuntimeMXBean;
 import mockit.MockUp;
 
 /**
@@ -18,6 +19,8 @@ import mockit.MockUp;
  * };
  * </pre>
  *
+ * @see System#nanoTime()
+ * @see RuntimeMXBean#getStartTime()
  */
 public class MillisProvider {
 
@@ -28,8 +31,9 @@ public class MillisProvider {
   private long nanoTimeInitial;
 
   /**
-   * By default the initial instant is the time at which the VM started, so the mocked clock will be
-   * close to real.
+   * The constructor will be called by jmockit because of the "fakes" runtime parameter. See readme.
+   * The initial instant is the time at which the VM started, so the mocked clock will be close to
+   * real.
    */
   public MillisProvider() {
     // need to get the start time without using System.currentTimeMillis

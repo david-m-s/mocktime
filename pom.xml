@@ -38,6 +38,7 @@
                 <version>2.22.2</version>
                 <configuration>
                     <argLine>
+                        -XX:CompileCommand=quiet
                         -XX:CompileCommand=dontinline,java/lang/System.currentTimeMillis
                         -Dfakes=org.dms.mocktime.MockSystem
                         -javaagent:${settings.localRepository}/org/jmockit/jmockit/${jmockit.version}/jmockit-${jmockit.version}.jar

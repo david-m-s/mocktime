@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.Date;
+import static org.dms.mocktime.TimeTraveller.timeTravel;
 import mockit.Mock;
 import mockit.MockUp;
 
@@ -19,13 +20,7 @@ public class TestMockTime {
 
   @Test
   public void testTicking() throws Exception {
-    new MockUp<MillisProvider>() {
-      @Mock
-      long getInitialInstant() {
-        return 1234567890000l;
-      }
-
-    };
+    timeTravel(1234567890000l);
     L.info("Date in test {}", new Date());
     Thread.sleep(1000);
     L.info("Date in test {}", new Date());
