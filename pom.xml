@@ -9,7 +9,7 @@
     <properties>
         <java.version>1.11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jmockit.version>1.47</jmockit.version>
+        <jmockit.version>1.49</jmockit.version>
     </properties>
 
     <dependencies>
